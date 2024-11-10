@@ -4,6 +4,7 @@ import subprocess
 
 
 def get_active_apps():
+
     cmd = "Get-Process | Where-Object { $_.MainWindowTitle } | Select-Object MainWindowTitle, Path | Format-Table -AutoSize -Wrap"
     process = subprocess.Popen(["powershell", "-Command", cmd], stdout=subprocess.PIPE)
     output = process.communicate()[0]
@@ -24,10 +25,10 @@ def get_active_apps():
         output[i] = output[i].split("C:\\")
         output[i] = [x for x in output[i] if x]
     for i in range(len(output)):
-        json_obj[output[i][0].strip().split("-")[-1].strip()] = (
-            "C:\\" + output[i][1].strip()
-        )
-
+        if len(output[i]) > 1:
+            json_obj[output[i][0].strip().split("-")[-1].strip()] = (
+                "C:\\" + output[i][1].strip()
+            )
     ignore_keys = [
         "Settings",
         "NVIDIA GeForce Overlay",
