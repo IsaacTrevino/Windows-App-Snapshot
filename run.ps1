@@ -1,3 +1,3 @@
 # execute both scripts
-.\app_snapshot.ps1 
-.\restore_snapshot.ps1
+.\snapshot_backup.ps1 
+.\snapshot_restore.ps1

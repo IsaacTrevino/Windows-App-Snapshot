@@ -33,6 +33,7 @@ def get_active_apps():
         "Settings",
         "NVIDIA GeForce Overlay",
         "Windows Input Experience",
+        "Mail"
     ]
 
     for key in ignore_keys:
