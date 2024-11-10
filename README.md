@@ -1,6 +1,6 @@
 <!-- write readme that ultimatly asks user to run ./run.ps1 in admin mode on powershell -->
 
-# Windows Restart Snapshot (Restore Apps upon close)
+# Windows App Snapshot (Restore Apps upon PC shutdown or restart)
 
 This app will take a snapshot of the current state of the system and save it to a file. This file can be used to restore the system to the state it was in when the snapshot was taken.
 
