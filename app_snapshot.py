@@ -17,6 +17,8 @@ def get_active_apps():
 
     output = list(filter(None, output))
     output = [x.strip() for x in output]
+    output = [x for x in output if len(x) > 1]
+
     json_obj: dict = {}
     for i in range(len(output)):
         output[i] = output[i].split("C:\\")
@@ -35,10 +37,11 @@ def get_active_apps():
     for key in ignore_keys:
         json_obj.pop(key, None)
 
-    current_path = os.getcwd()
-    json_file = os.path.join(current_path, "active_apps.json")
+    script_dir = os.getcwd()
+    json_file = os.path.join(script_dir, "active_apps.json")
     with open(json_file, "w") as f:
         json.dump(json_obj, f, indent=4)
+
 
     return json_obj
 
